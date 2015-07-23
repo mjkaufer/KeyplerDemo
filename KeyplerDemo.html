@@ -4,7 +4,16 @@
 
 
 <template name="hello">
-	<p>Hi</p>
+	{{#if currentUser}}
+		<p>Hello <b>{{userEmail}}</b></p>
+		{{#if userLicense}}
+			<p>Your license is <b>{{userLicense}}</b></p>
+		{{else}}
+			<button id="makeLicense">Make a license</button>
+		{{/if}}
+	{{else}}
+		<p>Please log in!</p>
+	{{/if}}
 </template>
 
 <template name="layout">
